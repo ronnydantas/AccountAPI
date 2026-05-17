@@ -18,7 +18,7 @@ public static class AddRepositorySetup
         });
         services.AddScoped<IBaseRepository<Account>, BaseRepository<Account>>();
 
-        //services.AddScoped<IClienteRepository, ClienteRepository>();
+        services.AddScoped<IAccountRepository, AccountRepository>();
 
         return services;
     }

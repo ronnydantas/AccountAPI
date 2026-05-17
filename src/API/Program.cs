@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Extensions.SwaggerConfigurations;
+using Domain.UseCases.AddAccount;
 using Infrastructure;
 
 /// <summary>
@@ -23,7 +24,7 @@ public class Program
         builder.Services.AddCustomCors();
 
         builder.Services.AddRepository(builder.Configuration);
-        //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AtualizarClienteUseCase).Assembly));
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AddAccountUseCase).Assembly));
 
         var app = builder.Build();
 
