@@ -1,4 +1,5 @@
 ﻿using Domain.UseCases.AddAccount;
+using Domain.UseCases.BlockedAccount;
 using Domain.UseCases.GetAccountByUserId;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -85,6 +86,19 @@ public class AccountController : ControllerBase
 
         if (result == null)
             return NotFound();
+
+        return Ok(result);
+    }
+
+    /// <summary>
+    /// Atualiza o status da conta.
+    /// </summary>
+    [HttpPut("{id:guid}/status")]
+    public async Task<IActionResult> UpdateStatus([FromRoute] Guid id, [FromBody] BlockedAccountCommand command)
+    {
+        command.UserId = id;
+
+        var result = await _mediator.Send(command);
 
         return Ok(result);
     }

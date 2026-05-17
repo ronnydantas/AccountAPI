@@ -10,6 +10,23 @@ public class AccountRepository : BaseRepository<Account>, IAccountRepository
     public AccountRepository(AccountContext context) : base(context)
     {
     }
+
+    public async Task<Account?> AtualizarStatus(Guid UserId, AccountStatus status)
+    {
+        var account = await _context.Contas.FirstOrDefaultAsync(c => c.UserId == UserId);
+
+        if (account == null)
+            return null;
+
+        account.Status = status;
+
+        _context.Contas.Update(account);
+
+        await _context.SaveChangesAsync();
+
+        return account;
+    }
+
     public async Task<Account?> ConsultarPorId(Guid id)
     {
         return await _context.Contas.FindAsync(id);

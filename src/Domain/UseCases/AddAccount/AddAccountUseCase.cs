@@ -27,6 +27,8 @@ public class AddAccountUseCase : IRequestHandler<AddAccountCommand, AddAccountVi
 
             Balance = 0,
 
+            Status = AccountStatus.Active,
+
             Type = (AccountType)request.Type,
 
             CreatedAt = DateTime.UtcNow
