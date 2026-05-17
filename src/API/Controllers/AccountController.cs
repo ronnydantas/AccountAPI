@@ -1,4 +1,5 @@
 ﻿using Domain.UseCases.AddAccount;
+using Domain.UseCases.GetAccountByUserId;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +44,7 @@ public class AccountController : ControllerBase
     /// <response code="401">
     /// Usuário não autenticado.
     /// </response>
-    [Authorize]
+   // [Authorize]
     [HttpPost]
     [ProducesResponseType(typeof(AddAccountViewModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -51,6 +52,39 @@ public class AccountController : ControllerBase
     public async Task<IActionResult> AddAccount([FromBody] AddAccountCommand command)
     {
         var result = await _mediator.Send(command);
+
+        return Ok(result);
+    }
+
+    /// <summary>
+    /// Busca a conta bancária pelo identificador do usuário.
+    /// </summary>
+    /// <param name="userId">
+    /// Identificador do usuário.
+    /// </param>
+    /// <returns>
+    /// Retorna os dados da conta bancária.
+    /// </returns>
+    /// <response code="200">
+    /// Conta encontrada com sucesso.
+    /// </response>
+    /// <response code="404">
+    /// Conta não encontrada.
+    /// </response>
+    /// <response code="401">
+    /// Usuário não autenticado.
+    /// </response>
+    //[Authorize]
+    [HttpGet("user/{userId}")]
+    [ProducesResponseType(typeof(GetAccountByUserIdViewModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> GetByUserId([FromRoute] Guid userId)
+    {
+        var result = await _mediator.Send(new GetAccountByUserIdQuery(userId));
+
+        if (result == null)
+            return NotFound();
 
         return Ok(result);
     }
