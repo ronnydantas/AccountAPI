@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37203.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API.csproj", "{A0422AE6-7414-469A-9EE2-B824812E68F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{2D3DBC67-ED08-4639-A6E1-B95A616523CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{154144C7-64A9-46B7-AAE6-D0564E259582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0422AE6-7414-469A-9EE2-B824812E68F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0422AE6-7414-469A-9EE2-B824812E68F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0422AE6-7414-469A-9EE2-B824812E68F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0422AE6-7414-469A-9EE2-B824812E68F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3DBC67-ED08-4639-A6E1-B95A616523CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3DBC67-ED08-4639-A6E1-B95A616523CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3DBC67-ED08-4639-A6E1-B95A616523CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3DBC67-ED08-4639-A6E1-B95A616523CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154144C7-64A9-46B7-AAE6-D0564E259582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154144C7-64A9-46B7-AAE6-D0564E259582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154144C7-64A9-46B7-AAE6-D0564E259582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154144C7-64A9-46B7-AAE6-D0564E259582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBD445E5-4907-45AB-A676-F756B30B1997}
+	EndGlobalSection
+EndGlobal
