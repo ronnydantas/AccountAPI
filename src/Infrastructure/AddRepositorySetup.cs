@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
+using Infrastructure.Consumers;
 using Infrastructure.Contexts;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ public static class AddRepositorySetup
         services.AddScoped<IBaseRepository<Account>, BaseRepository<Account>>();
 
         services.AddScoped<IAccountRepository, AccountRepository>();
+
+        services.AddHostedService<UserCreatedConsumer>();
 
         return services;
     }

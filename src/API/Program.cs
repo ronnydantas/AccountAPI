@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Extensions.SwaggerConfigurations;
+using Domain.Entities;
 using Domain.UseCases.AddAccount;
 using Infrastructure;
 
@@ -25,6 +26,8 @@ public class Program
 
         builder.Services.AddRepository(builder.Configuration);
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AddAccountUseCase).Assembly));
+
+        builder.Services.Configure<KafkaSettings>(builder.Configuration.GetSection("Kafka"));
 
         var app = builder.Build();
 
